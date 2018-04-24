@@ -186,7 +186,7 @@ Looper.loop();
         sThreadLocal.set(new Looper(quitAllowed));
     }
 ```
-可以看到Looper中有一个ThreadLocal成员变量，熟悉JDK的同学应该知道，当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。具体参考：<a href="http://blog.csdn.net/lufeng20/article/details/24314381">彻底理解ThreadLocal</a>
+可以看到Looper中有一个ThreadLocal成员变量，熟悉JDK的同学应该知道，当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。具体参考：<a href="https://blog.csdn.net/singwhatiwanna/article/details/48350919">彻底理解ThreadLocal</a>
 由此可以看出在每个线程中Looper.prepare()能且只能调用一次，这里我们可以尝试一下调用两次的情况。
 
 ```
